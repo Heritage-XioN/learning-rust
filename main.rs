@@ -3,6 +3,11 @@
 
 
 
+// find out what this -> :: means
+// for getting values within a range use
+// ".." eg: 3..10 or 3..=10 
+// the "=" means that the last value is included in the range
+
 // main entry point
 fn main() {
     // make sure all statements end with ";"
@@ -54,17 +59,29 @@ fn learning_variables(){
     (f, ..) = (25, 75); // tuple 
     [.., g] = [65, 21]; // array
 
+    // the value that is assigned to a variable can be type annoted
+    // like so value_dataType also note that the underscore is not necessary
+    // and is only used for readability sake
+    let h: u8 = 8_u8; // in this case 8 is the value u8 is the dataType
+
+    // a variable can only be assigned a value with matching dataType 
+    // if the value you wish to assign it is not of the same dataType 
+    // you can use "as" followed by the variables dataType the compiler
+    // will convert the value to the specified data type if possible
+    let i: u16 = 4_u8 as u16;
+
+    let j: String = "hello world".to_string();
 
     // this is the equality macro
     // used to compare if two values are eqaul to each other
     assert_eq!(c, 10);
-
 
     //print!("value of x: {x}");
     // both println macro below do the same thing
     println!("value of d: {d}. value of e: {e}");
     println!("value of a: {}. value of c: {}", a, c);
     println!("value of f: {}. value of g: {}", f, g);
+    println!("value of h: {}. value of i: {}", h, i);
 
     println!("learing varibles ends here!!!!");
 }
