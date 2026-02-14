@@ -70,7 +70,8 @@ fn learning_variables(){
     // will convert the value to the specified data type if possible
     let i: u16 = 4_u8 as u16;
 
-    let j: String = "hello world".to_string();
+    let _j: String = "hello world".to_string();
+    let _s = String::from("hello, world");
 
     // this is the equality macro
     // used to compare if two values are eqaul to each other
