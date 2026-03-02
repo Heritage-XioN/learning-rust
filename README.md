@@ -120,6 +120,124 @@ fn never_return() -> ! {
     panic!()
 }
 ```
+
+
+#
+## Data structures
+
+### arrays
+this is a fixed-size collection of elements of the same data type stored as 
+contiguous block in stack memory. its signature is [T, Length] which indicates 
+that the length is fixed at compile time. arrays can neither grow nor shrink, 
+they must retain there size
+
+*Eg:*
+```rust
+fn main(){
+    // declaring an array
+    // [dataType, length]
+    let arr: [i32; 5] = [1, 2, 3, 4, 5];
+
+    // accessing an element
+    println!("{}", arr[0]);
+
+    // getting the length
+    println!("{}", arr.len());
+
+    // getting the type
+    println!("{:?}", arr.type_id());
+}
+```
+
+### vectors
+vectors are dynamic arrays that can grow or shrink in size at runtime. they are stored on the heap and have a pointer in the stack
+
+*Eg:*
+```rust
+fn main(){
+    // declaring a vector
+    let mut vec: Vec<i32> = Vec::new();
+
+    // pushing an element
+    vec.push(1);
+
+    // getting the length
+    println!("{}", vec.len());
+
+    // getting the type
+    println!("{:?}", vec.type_id());
+}
+```
+
+### tuples
+tuples are used to group together values of different data types. they are immutable by default and can be accessed using indexing
+
+*Eg:*
+```rust
+fn main(){
+    // declaring a tuple
+    let tup: (i32, f64, u8) = (1, 2.0, 3);
+
+    // accessing an element
+    println!("{}", tup.0);
+
+    // getting the type
+    println!("{:?}", tup.type_id());
+}
+```
+
+### structs
+structs are user-defined data types that allow you to group together values of different data types. they are immutable by default and can be accessed using indexing
+
+*Eg:*
+```rust
+fn main(){
+
+    // declaring a struct
+    struct Person {
+        name: String,
+        age: u8,
+    }
+
+    // instantiating a struct
+    let person: Person = Person {
+        name: "John",
+        age: 30,
+    };
+
+    // accessing an element
+    println!("{}", person.name);
+
+    // getting the type
+    println!("{:?}", person.type_id());
+}
+```
+
+### enums
+enums are user-defined data types that allow you to group together values of different data types. they are immutable by default and can be accessed using indexing
+
+*Eg:*
+```rust
+fn main(){
+    // declaring an enum
+    enum Color {
+        Red,
+        Green,
+        Blue,
+    }
+
+    // instantiating an enum
+    let color: Color = Color::Red;
+
+    // accessing an element
+    println!("{:?}", color);
+
+    // getting the type
+    println!("{:?}", color.type_id());
+}
+```
+
+
 #
 ## Ownership
 rust ownership system is a set of rules that govern
@@ -430,7 +548,7 @@ fn dangle(){
 }// because "s" goes out of scope here
 ```
 
-2:30:00
+3:00:00
 
 ```rust
 let mut x Box<value type> = Box::new(value); // this stores whatever value passed to it into the heap memory

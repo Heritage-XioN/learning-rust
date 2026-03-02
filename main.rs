@@ -76,6 +76,9 @@ fn learning_variables(){
     s.push('!'); // for characters
     println!("{}", s);
 
+    let rep = s.replace("guys", "buddies"); // replaces the string "guys" with "buddies"
+    println!("{}", rep);
+
     // this is the equality macro
     // used to compare if two values are eqaul to each other
     assert_eq!(c, 10);
