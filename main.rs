@@ -71,7 +71,10 @@ fn learning_variables(){
     let i: u16 = 4_u8 as u16;
 
     let _j: String = "hello world".to_string();
-    let _s = String::from("hello, world");
+    let mut s = String::from("hello, world, ");
+    s.push_str("guys"); // for strings
+    s.push('!'); // for characters
+    println!("{}", s);
 
     // this is the equality macro
     // used to compare if two values are eqaul to each other

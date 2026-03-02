@@ -28,13 +28,13 @@ single unicode scalar value
 | 4-bytes | char   |   ' '   |
 
 ### string - String
-dynamic strings scalar UTF-8 encoded that are heap allocated, mutable and are owned, it is stored on the heap with a pointer in the stack.
+dynamic values, heap-allocated type that are mutable and are owned, it is stored on the heap with a pointer in the stack.
 | length  | type    |                use               |
 |---------|---------|----------------------------------|
 | dynamic | String  |  " ".to_string() or String::from(" ");  |
 
 ### string - str
-strings scalar UTF-8 encoded that are a borrowed immutable reference
+is a UTF-8 encoded sequence that are a borrowed(not owned) immutable reference
 | length | type    |   use  |
 |--------|---------|--------|
 | 4-bytes |  &str  |   " "  |
@@ -322,12 +322,14 @@ pointers and data races. just like ownership it has it's own
 set of rules that must be complied with otherwise the program 
 won't compile
 
-**Rules of reference:**
+**Rules of borrowing/reference:**
 1. at any given time, you can have either one mutable
 reference or any number of immutable references
 2. references must always be valid
 
-to reference a variable use the `&` synbol 
+to reference(get the pointer/memory address) a variable use this `&` character or the `ref` keyword both of them have a slight difference(usage, etc) but generally do the same thing  
+
+to de-reference(get the actually value stored a a memory address) a variable use `*` character
 
 Eg:  
 immutable reference
@@ -428,7 +430,7 @@ fn dangle(){
 }// because "s" goes out of scope here
 ```
 
-2:22:00
+2:30:00
 
 ```rust
 let mut x Box<value type> = Box::new(value); // this stores whatever value passed to it into the heap memory
