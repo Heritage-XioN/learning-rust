@@ -1026,7 +1026,9 @@ Lifetimes ensure references are valid for as long as they're used. The compiler 
 ### Lifetime Annotations
 ```rust
 // this tells the compiler: the returned reference lives at least
-// as long as the shorter of 'a lifetimes on x and y
+// as long as the 'a lifetimes on x and y.
+// so basically what ever values(x, y) passed to longest 
+// must outlive it
 fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     if x.len() > y.len() { x } else { y }
 }
